@@ -1,0 +1,95 @@
+/* 🌌 Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+/* 🔙 Back Button */
+.back {
+  width: auto !important;
+  padding: 8px 15px;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #00f2ff;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+
+  width: auto !important;
+  display: inline-block;
+
+  box-shadow: 0 0 10px #00f2ff;
+}
+
+/* 📦 Container */
+.container {
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* 🧾 Headings */
+h2, h3 {
+  text-align: center;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* 💎 Cards */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  margin: 12px 0;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(0,255,255,0.2);
+}
+
+/* ✨ Hover Glow Effect */
+.card:hover {
+  transform: scale(1.05);
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff;
+}
+
+/* 💡 Click effect */
+.card:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 20px #00f;
+}
+
+/* 💳 Buttons */
+button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background: #0ff;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  box-shadow: 0 0 15px #0ff;
+}
+
+/* 📥 Input */
+input, select {
+  background: #111;
+  color: white;
+  border: 1px solid #0ff;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}

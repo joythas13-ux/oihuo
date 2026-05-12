@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Login</title>
+<link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e2a47, #0b132b);
+    }
+
+    .container {
+      width: 300px;
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      background: #4facfe;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00f2fe;
+    }
+  </style>
+
+</head>
+<body>
+
+<button class="back" onclick="goBack()">⬅ Back</button>
+
+<script>
+function goBack(){
+  window.location.href = "home.html";
+}
+</script>
+
+<div class="container">
+  <h2>Login</h2>
+
+  <!-- ✅ MESSAGE BOX (NEW) -->
+  <p id="msg" style="
+    display:none;
+    color:white;
+    background:green;
+    padding:10px;
+    border-radius:8px;
+    text-align:center;
+  "></p>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyABYByDW8bAOCHfCwcRNaSN1wwifQEhzA4",
+  authDomain: "freefiretopup-bbb23.firebaseapp.com",
+  projectId: "freefiretopup-bbb23",
+  storageBucket: "freefiretopup-bbb23.firebasestorage.app",
+  messagingSenderId: "305435218774",
+  appId: "1:305435218774:web:d258e8218bd1bdec50fcf7",
+  measurementId: "G-HLNGZ236PZ"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// 🔐 LOGIN FUNCTION (FIXED)
+window.login = function() {
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const msg = document.getElementById("msg");
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      msg.style.display = "block";
+      msg.innerText = "Login Success 🔥";
+
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 1000);
+    })
+    .catch((error) => {
+      msg.style.display = "block";
+      msg.style.background = "red";
+      msg.innerText = error.message;
+    });
+
+}
+
+</script>
+
+</body>
+</html>

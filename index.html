@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+<link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4b0082, #1e3c72);
+    }
+
+    .box {
+      width: 700px;
+      height: 400px;
+      display: flex;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .left {
+      width: 50%;
+      background: linear-gradient(135deg, #8e2de2, #4a00e0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 22px;
+    }
+
+    .right {
+      width: 50%;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      background: #6a11cb;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2575fc;
+    }
+  </style>
+</head>
+
+<body>
+ <button class="back" onclick="goBack()">⬅ Back</button>
+
+<script>
+function goBack(){
+  window.location.href = "home.html";
+}
+</script>
+
+<div class="box">
+
+  <div class="left">
+    🚀 Create Account
+  </div>
+
+  <div class="right">
+   <h2>Register</h2>
+
+<p id="msg" style="
+  display:none;
+  color:white;
+  background:green;
+  padding:10px;
+  border-radius:8px;
+  text-align:center;
+"></p>
+
+<input type="email" id="email" placeholder="Enter Email"><br><br>
+<input type="password" id="password" placeholder="Enter Password"><br><br>
+
+<button onclick="register()">Register</button>
+  </div>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>

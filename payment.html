@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="payment.css">
+
+  <style>
+    .title {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    .info p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .highlight {
+      color: #0ff;
+    }
+
+    .preview {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<button class="back" onclick="goBack()">⬅ Back</button>
+
+<div class="container">
+
+<div class="card">
+  <div class="title">💳 Payment Details</div>
+
+  <div class="info">
+    <p><b>Account No:</b> <span class="highlight">134020110640</span></p>
+    <p><b>Name:</b> <span class="highlight">JOYTHAS K</span></p>
+    <p><b>Bank:</b> <span class="highlight">HNB 🏦</span></p>
+  </div>
+</div>
+
+<div class="card">
+
+  <div class="title">🎮 Order Details</div>
+
+  <!-- UID -->
+  <input type="text" id="uid" placeholder="Enter Game UID">
+
+  <!-- Selected -->
+  <input type="text" id="diamond" readonly>
+
+
+
+  <div class="preview">📌 💳 Pay → 📸 Screenshot → 📲 WhatsApp ( MUST )</div>
+
+  <button onclick="send()">Send via WhatsApp</button>
+
+</div>
+
+</div>
+
+<script>
+
+function goBack(){
+  window.location.href="topup.html";
+}
+
+// Auto fill selected item
+window.onload = function(){
+  const item = localStorage.getItem("selectedTopup");
+  if(item){
+    document.getElementById("diamond").value = item;
+  }
+}
+
+function send(){
+
+  const uid = document.getElementById("uid").value;
+  const item = document.getElementById("diamond").value;
+
+  if(uid === ""){
+    alert("⚠ Enter UID");
+    return;
+  }
+
+  if(item === ""){
+    alert("⚠ Select Top Up");
+    return;
+  }
+
+  const number = "94771945590";
+
+  const message =
+`Hi Bro,
+UID: ${uid}
+Selected: ${item}
+Payment done.`;
+
+  const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
